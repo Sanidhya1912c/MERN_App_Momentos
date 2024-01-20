@@ -14,7 +14,7 @@ app.use(cors());
 app.use("/posts", postRoutes);
 
 mongoose
-  .connect("mongodb://localhost:27017")
+  .connect("mongodb://localhost:27017/momentos")
   .then(() => {
     app.listen(5173);
   })
