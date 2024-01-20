@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import { Posts, Post, Form } from "./components/index.js";
 import useStyles from "./styles.js";

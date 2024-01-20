@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
+import useStyles from "./styles.js";
 
 const Form = () => {
-  return (
-    <div>Form</div>
-  )
-}
+  const classes = useStyles();
+  return <div>Form</div>;
+};
 
-export default Form
+export default Form;
