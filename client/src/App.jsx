@@ -2,10 +2,20 @@ import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
 import { Posts, Post, Form } from "./components/index.js";
 import useStyles from "./styles.js";
 
+import { useDispatch } from "react-redux";
+import { getPost } from "./actions/posts.js";
+
 import memories from "./images/memories.png";
+import { useEffect } from "react";
 
 function App() {
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPost());
+  }, [dispatch]);
 
   return (
     <Container maxWidth="lg">
@@ -13,7 +23,12 @@ function App() {
         <Typography className={classes.heading} variant="h2" align="center">
           Momento
         </Typography>
-        <img className={classes.image} src={memories} alt="Momento" height={60} />
+        <img
+          className={classes.image}
+          src={memories}
+          alt="Momento"
+          height={60}
+        />
       </AppBar>
       <Grow in>
         <Container>
