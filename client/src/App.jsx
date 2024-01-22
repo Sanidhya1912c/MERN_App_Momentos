@@ -3,7 +3,7 @@ import { Posts, Post, Form } from "./components/index.js";
 import useStyles from "./styles.js";
 
 import { useDispatch } from "react-redux";
-import { getPost } from "./actions/posts.js";
+import { getPosts } from "./actions/posts.js";
 
 import memories from "./images/memories.png";
 import { useEffect } from "react";
@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPost());
+    dispatch(getPosts());
   }, [dispatch]);
 
   return (

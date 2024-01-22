@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 import postRoutes from "./routes/post.js";
+import PostMessage from "./models/posts.js";
 
 const app = express();
 
@@ -16,6 +17,22 @@ app.use("/posts", postRoutes);
 mongoose
   .connect("mongodb://localhost:27017/momentos")
   .then(() => {
-    app.listen(5173);
+    app.listen(3000);
+
+    return PostMessage.find();
+  })
+  .then((data) => {
+    if (data === null) {
+      const post = new PostMessage({
+        title: "Book",
+        message: "nice ",
+        creator: "John",
+        tags: [null],
+        selectedFile: "none",
+        likeCount: 0,
+        createdAt: new Date(),
+      });
+      post.save();
+    }
   })
   .catch((err) => console.log(err));
