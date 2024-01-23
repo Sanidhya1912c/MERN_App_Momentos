@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useStyles from "./styles.js";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
+import { useDispatch } from "react-redux";
+import { createPost } from "../../actions/posts.js";
 
 const Form = () => {
   const [postData, setPostData] = useState({
@@ -12,13 +14,25 @@ const Form = () => {
     selectedFile: "",
   });
 
-  useEffect(() => {}, []);
+  const dispatch = useDispatch();
 
   const clear = () => {};
 
   const classes = useStyles();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(createPost(postData));
+
+    setPostData({
+      creator: "",
+      title: "",
+      message: "",
+      tags: "",
+      selectedFile: "",
+    });
+  };
 
   return (
     <Paper className={classes.paper}>
@@ -28,11 +42,10 @@ const Form = () => {
         className={`${classes.root} ${classes.form}`}
         onSubmit={handleSubmit}
       >
-        <Typography variant="h6">Creating a Momery</Typography>
         <TextField
           name="creator"
           variant="outlined"
-          lable="Creator"
+          label="Creator"
           fullWidth
           value={postData.creator}
           onChange={(e) =>
@@ -40,19 +53,20 @@ const Form = () => {
           }
         />
         <TextField
-          name="titel"
+          name="title"
           variant="outlined"
-          lable="Title"
+          label="Title"
           fullWidth
-          value={postData.creator}
+          value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
         />
         <TextField
           name="message"
           variant="outlined"
-          lable="Message"
+          label="Message"
           fullWidth
-          value={postData.creator}
+          multiline
+          value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
@@ -60,10 +74,12 @@ const Form = () => {
         <TextField
           name="tags"
           variant="outlined"
-          lable="Tags"
+          label="Tags (coma separated)"
           fullWidth
-          value={postData.creator}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          value={postData.tags}
+          onChange={(e) =>
+            setPostData({ ...postData, tags: e.target.value.split(",") })
+          }
         />
         <div className={classes.fileInput}>
           <FileBase

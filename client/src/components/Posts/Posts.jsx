@@ -4,6 +4,7 @@ import Post from "./Post/Post.jsx";
 
 const Posts = () => {
   const classes = useStyles();
+  
   return (
     <div>
       <Post />
