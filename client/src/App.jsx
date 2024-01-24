@@ -17,8 +17,6 @@ function App() {
     dispatch(getPosts());
   }, [dispatch]);
 
-  
-
   return (
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
@@ -52,5 +50,8 @@ function App() {
     </Container>
   );
 }
+
+//the posts this line is not working
+//  const posts = useSelector((state) => state.posts);
 
 export default App;
