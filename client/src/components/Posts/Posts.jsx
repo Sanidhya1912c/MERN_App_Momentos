@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useStyles from "./styles.js";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
@@ -7,8 +7,9 @@ import Post from "./Post/Post.jsx";
 
 const Posts = () => {
   const classes = useStyles();
+  const [posts, setPosts] = useState([]);
 
-  const posts = useSelector((state) => state.posts);
+  useSelector((state) => state.posts).then((post) => setPosts(post));
 
   useEffect(() => {
     console.log(posts);

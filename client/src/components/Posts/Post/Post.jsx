@@ -17,7 +17,7 @@ import DeleteIcon from "@material-ui/icons/Delete.js";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz.js";
 
 const Post = ({ post }) => {
-  const { creator, title, message, tags, selectedFile, likeCount } = post;
+  const { creator, title, message, tags, selectedFile, likeCount ,createdAt } = post;
 
   const classes = useStyles();
 
@@ -30,7 +30,7 @@ const Post = ({ post }) => {
       </div>
       <div className={classes.overlay2}>
         <Button style={{ color: "white" }} size="small" onClick={() => {}}>
-          <MoreHorizIcon fontSize="default" />
+          <MoreHorizIcon fontSize="medium"/>
         </Button>
       </div>
       <div className={classes.details}>
