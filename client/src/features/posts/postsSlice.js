@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createPosts } from "../../actions/posts";
+import { createPosts, deletePosts } from "../../actions/posts";
 import * as api from "../../api/index";
 
 const getPost = async () => {
   try {
     const { data } = await api.fetchPosts();
-
-    // console.log(data);
 
     return data;
   } catch (error) {
@@ -24,9 +22,10 @@ export const posts = createSlice({
   reducers: {
     createPost: createPosts,
     getPosts: getPost,
+    deletePost: deletePosts,
   },
 });
 
-export const { createPost, getPosts } = posts.actions;
+export const { createPost, getPosts, deletePost } = posts.actions;
 
 export default posts.reducer;

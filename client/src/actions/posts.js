@@ -10,3 +10,21 @@ export const createPosts = async (state, action) => {
     console.log(error.message);
   }
 };
+
+export const likePosts = async (state, action) => {
+  try {
+    api.likePost(action.payload);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const deletePosts = async (state, action) => {
+  try {
+    // api.deletePost(action.payload);
+    console.log(action.payload);
+    
+  } catch (error) {
+    console.log(error.message);
+  }
+};

@@ -9,7 +9,8 @@ const Posts = () => {
   const classes = useStyles();
   const [posts, setPosts] = useState([]);
 
-  useSelector((state) => state.posts).then((post) => setPosts(post));
+  const post = useSelector((state) => state.posts);
+  post.then((post) => setPosts(post));
 
   useEffect(() => {
     console.log(posts);
