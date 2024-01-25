@@ -1,15 +1,8 @@
 {
-  "name": "client",
+  "name": "mern-stack-client",
+  "version": "0.1.0",
   "private": true,
-  "proxy" : "https://localhost:3000",
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "start": "vite ",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "proxy": "http://localhost:5173",
   "dependencies": {
     "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
@@ -21,24 +14,16 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-file-base64": "^1.0.3",
+    "react-redux": "^7.1.3",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "@reduxjs/toolkit": "^1.9.5",
-    "react-redux": "^8.1.2",
     "redux-thunk": "^2.3.0"
   },
-  "devDependencies": {
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.55.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.0.8",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,5 +39,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0"
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useStyles from "./styles.js";
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import { TextField, Button, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { createPost } from "../../features/posts/postsSlice.js";

@@ -7,7 +7,3 @@ export const fetchPosts = () => axios.get(url);
 export const createPosts = (post) => {
   axios.post(url, post);
 };
-
-export const deletePost = (id) => axios.post(url, id);
-
-export const likePost = (id) => axios.post(url, id);

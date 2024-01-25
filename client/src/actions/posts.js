@@ -1,29 +1,28 @@
-import * as api from "../api";
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  LIKE,
+} from "../constants/actionTypes";
 
-//Actions creators
-export const createPosts = async (state, action) => {
+import * as api from "../api/index.js";
+
+export const getPosts = () => async (dispatch) => {
   try {
-    const { data } = await api.createPosts(action.payload);
+    const { data } = await api.fetchPosts();
 
-    state.posts.push(data);
+    dispatch({ type: FETCH_ALL, payload: data });
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const likePosts = async (state, action) => {
+export const createPost = (post) => async (dispatch) => {
   try {
-    api.likePost(action.payload);
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+    const { data } = await api.createPost(post);
 
-export const deletePosts = async (state, action) => {
-  try {
-    // api.deletePost(action.payload);
-    console.log(action.payload);
-    
+    dispatch({ type: CREATE, payload: data });
   } catch (error) {
     console.log(error.message);
   }

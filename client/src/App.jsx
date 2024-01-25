@@ -3,6 +3,7 @@ import { Posts, Form } from "./components/index.js";
 import useStyles from "./styles.js";
 
 import memories from "./images/memories.png";
+import "./index.css";
 
 function App() {
   const classes = useStyles();
@@ -40,8 +41,5 @@ function App() {
     </Container>
   );
 }
-
-//the posts this line is not working
-//  const posts = useSelector((state) => state.posts);
 
 export default App;
